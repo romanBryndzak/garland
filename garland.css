@@ -2,6 +2,8 @@
 .garland-container {
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
 }
 
 .lamp {
@@ -11,9 +13,11 @@
     margin: 10px;
 }
 
-.start-btn {
-    background: transparent;
+.btn {
+    background: #efecec;
     border: solid 1px grey;
-    width: 80px;
-    height: 35px;
+    margin: 20px 0 0 20px;
+    /*width: 60px;*/
+    height: 30px;
+    border-radius: 5px;
 }

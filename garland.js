@@ -8,33 +8,47 @@ function getRandomColor() {
 
 let isGarlandWork = false;
 
-function createGarland() {
+function createGarland(quantity) {
     const garlandContainer = document.querySelector(".garland-container");
 
-    for (let i = 0; getRandomInt(1, 100) > i; i++) {
+    for (let i = 0; quantity > i; i++) {
         const newLamp = document.createElement("div");
         newLamp.className = "lamp";
         newLamp.style.background = getRandomColor();
         garlandContainer.append(newLamp);
     }
 }
-createGarland();
+
+createGarland(getRandomInt(1, 50));
 
 function changeGarlandColor() {
-   const listLampArr = document.querySelectorAll(".lamp");
+    const listLampArr = document.querySelectorAll(".lamp");
     listLampArr.forEach((item) => {
         item.style.background = getRandomColor();
     })
 }
 
-const garlandSartBtn = document.querySelector(".start-btn");
+const increaseBtn = document.getElementById("increase");
+increaseBtn.addEventListener("click", () => {
+    createGarland(getRandomInt(1, 50));
+});
+
+const SSBtn = document.getElementById("start_stop");
+SSBtn.addEventListener("click", () => {
+
+    if (SSBtn.innerText === "Start") {
+        SSBtn.innerText = "Stop";
+    } else {
+        SSBtn.innerText = "Start";
+    }
+});
 let changeColorInterval;
 
-garlandSartBtn.onclick = () => {
+SSBtn.onclick = () => {
     if (isGarlandWork === false) {
         changeColorInterval = setInterval(() => {
             changeGarlandColor();
-        }, 1000);
+        }, 1600);
         isGarlandWork = true;
     } else {
         clearInterval(changeColorInterval);
